@@ -1,0 +1,20 @@
+﻿  cpu.cpp
+  display.cpp
+D:\Рабочий стол\Gameboy-Emulator-master\src\display.cpp(113,16): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\Рабочий стол\Gameboy-Emulator-master\src\display.cpp(114,16): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\Рабочий стол\Gameboy-Emulator-master\src\display.cpp(160,16): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\Рабочий стол\Gameboy-Emulator-master\src\display.cpp(161,16): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\Рабочий стол\Gameboy-Emulator-master\src\display.cpp(335,31): warning C4018: >=: несоответствие типов со знаком и без знака
+D:\Рабочий стол\Gameboy-Emulator-master\src\display.cpp(337,31): warning C4018: >=: несоответствие типов со знаком и без знака
+  emulator.cpp
+D:\Рабочий стол\Gameboy-Emulator-master\src\emulator.cpp(46,31): warning C4244: аргумент: преобразование "float" в "sf::Int32", возможна потеря данных
+  main.cpp
+  memory.cpp
+  memory_controllers.cpp
+  opcodes.cpp
+  sound.cpp
+  types.cpp
+  Создание кода...
+D:\Рабочий стол\Gameboy-Emulator-master\src\memory_controllers.cpp(81): warning C4715: MemoryController1::read: значение возвращается не при всех путях выполнения
+D:\Рабочий стол\Gameboy-Emulator-master\src\memory_controllers.cpp(216): warning C4715: MemoryController3::read: значение возвращается не при всех путях выполнения
+  Emulation.vcxproj -> D:\Рабочий стол\Gameboy-Emulator-master\src\x64\Debug\Emulation.exe
