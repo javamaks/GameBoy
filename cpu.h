@@ -45,9 +45,9 @@ private:
 	void parse_bit_op(Opcode code);
 	void set_flag(int flag, bool value);
 
-	// ---------- ÈÍÑÒÐÓÊÖÈÈ ÖÏÓ ---------- //
+	// ---------- Ассемблерные команды ---------- //
 
-	// Çàãðóçêè 8-áèòíûõ çíà÷åíèé
+	// Операции загрузки значения
 	void LD(Byte& destination, Byte value);
 	void LD(Byte& destination, Address addr);
 	void LD(Address addr, Byte value);
@@ -137,7 +137,7 @@ private:
 	void SCF();
 	void CCF();
 
-	// Èíñòðóêöèè ïåðåõîäà
+	// Операции перехода.
 	void JP(Pair target);
 	void JPNZ(Pair target);
 	void JPZ(Pair target);
