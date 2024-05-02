@@ -3,22 +3,22 @@
 #include "types.h"
 #include "memory.h"
 
-// Процессор Gameboy: 8-битный (Аналог процессора Z80)
+
 class CPU
 {
 public:
-	Byte reg_A; // Аккумулятор
+	Byte reg_A; // РђРєРєСѓРјСѓР»СЏС‚РѕСЂ
 	Byte reg_B;
 	Byte reg_C;
 	Byte reg_D;
 	Byte reg_E;
 	Byte reg_H;
 	Byte reg_L;
-	Byte reg_F; // Регистр флагов
-	Byte_2 reg_SP; // Указатель стека
-	Byte_2 reg_PC; // Счетчик программы
+	Byte reg_F; // ГђГҐГЈГЁГ±ГІГ° ГґГ«Г ГЈГ®Гў
+	Byte_2 reg_SP; // РЎС‚РµРє
+	Byte_2 reg_PC; // РЎС‡РµС‚С‡РёРє РєРѕРјР°РЅРґ
 
-	int CLOCK_SPEED = 4194304; // Скорость ЦПУ 4194304 Гц
+	int CLOCK_SPEED = 4194304; // РњР°РєСЃ С‡Р°СЃС‚РѕС‚Р° РїСЂРѕС†РµСЃСЃРѕСЂР° 
 	int num_cycles = 0;
 	bool interrupt_master_enable = true;
 	bool halted = false;
@@ -45,14 +45,14 @@ private:
 	void parse_bit_op(Opcode code);
 	void set_flag(int flag, bool value);
 
-	// ---------- ИНСТРУКЦИИ ЦПУ ---------- //
+	// ---------- Г€ГЌГ‘Г’ГђГ“ГЉГ–Г€Г€ Г–ГЏГ“ ---------- //
 
-	// Загрузки 8-битных значений
+	// Г‡Г ГЈГ°ГіГ§ГЄГЁ 8-ГЎГЁГІГ­Г»Гµ Г§Г­Г Г·ГҐГ­ГЁГ©
 	void LD(Byte& destination, Byte value);
 	void LD(Byte& destination, Address addr);
 	void LD(Address addr, Byte value);
 
-	// Загрузки 16-битных значений
+	// Г‡Г ГЈГ°ГіГ§ГЄГЁ 16-ГЎГЁГІГ­Г»Гµ Г§Г­Г Г·ГҐГ­ГЁГ©
 	void LD(Pair reg_pair, Byte upper, Byte lower);
 	void LD(Byte_2& reg_pair, Byte upper, Byte lower);
 	void LDHL(Byte value);
@@ -89,7 +89,7 @@ private:
 	void DEC(Byte& target);
 	void DEC(Address addr);
 
-	// Арифметика 16-битных значений
+	// ГЂГ°ГЁГґГ¬ГҐГІГЁГЄГ  16-ГЎГЁГІГ­Г»Гµ Г§Г­Г Г·ГҐГ­ГЁГ©
 	void ADD16(Byte_2 target, Byte_2 value);
 	void ADDHL(Pair reg_pair);
 	void ADDHLSP();
@@ -100,17 +100,17 @@ private:
 	void DEC(Pair reg_pair);
 	void DECSP();
 
-	// Инструкции сдвига и вращения
+	// Г€Г­Г±ГІГ°ГіГЄГ¶ГЁГЁ Г±Г¤ГўГЁГЈГ  ГЁ ГўГ°Г Г№ГҐГ­ГЁГї
 
-	// Сдвиг влево
+	// Г‘Г¤ГўГЁГЈ ГўГ«ГҐГўГ®
 	void SL(Byte& target);
 	void SL(Address addr);
 
-	// Сдвиг вправо
+	// Г‘Г¤ГўГЁГЈ ГўГЇГ°Г ГўГ®
 	void SR(Byte& target, bool include_top_bit);
 	void SR(Address addr, bool include_top_bit);
 
-	// Сдвиги через перенос
+	// Г‘Г¤ГўГЁГЈГЁ Г·ГҐГ°ГҐГ§ ГЇГҐГ°ГҐГ­Г®Г±
 	void RL(Byte& target, bool carry, bool zero_flag = false);
 	void RL(Address addr, bool carry);
 	void RR(Byte& target, bool carry, bool zero_flag = false);
@@ -124,7 +124,7 @@ private:
 	void SWAP(Byte& target);
 	void SWAP(Address addr);
 
-	// Операции над битами
+	// ГЋГЇГҐГ°Г Г¶ГЁГЁ Г­Г Г¤ ГЎГЁГІГ Г¬ГЁ
 	void BIT(Byte target, int bit);
 	void BIT(Address addr, int bit);
 
@@ -137,7 +137,7 @@ private:
 	void SCF();
 	void CCF();
 
-	// Инструкции перехода
+	// Г€Г­Г±ГІГ°ГіГЄГ¶ГЁГЁ ГЇГҐГ°ГҐГµГ®Г¤Г 
 	void JP(Pair target);
 	void JPNZ(Pair target);
 	void JPZ(Pair target);
@@ -151,7 +151,7 @@ private:
 	void JRC(Byte value);
 	void JPHL();
 
-	// Функциональные инструкции
+	// Г”ГіГ­ГЄГ¶ГЁГ®Г­Г Г«ГјГ­Г»ГҐ ГЁГ­Г±ГІГ°ГіГЄГ¶ГЁГЁ
 	void CALL(Byte low, Byte high);
 	void CALLNZ(Byte low, Byte high);
 	void CALLZ(Byte low, Byte high);
@@ -159,13 +159,13 @@ private:
 	void CALLC(Byte low, Byte high);
 
 	void RET();
-	void RETI(); // НЕ РЕАЛИЗОВАНО
+	void RETI(); // ГЌГ… ГђГ…ГЂГ‹Г€Г‡ГЋГ‚ГЂГЌГЋ
 	void RETNZ();
 	void RETZ();
 	void RETNC();
 	void RETC();
 
-	// Различные инструкции
+	// ГђГ Г§Г«ГЁГ·Г­Г»ГҐ ГЁГ­Г±ГІГ°ГіГЄГ¶ГЁГЁ
 	void RST(Address addr);
 
 	void DAA();
