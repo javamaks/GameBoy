@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 #ifdef SOUND_H
 #define SOUND_H
 #include<SFML/Audio.hpp>
@@ -12,4 +12,3 @@ int main() {
 }
 
 #endif 
-*/
